@@ -2,7 +2,16 @@ class TadpolesController < ApplicationController
   before_action :set_tadpole, only: [:show, :edit, :update, :destroy, :metamorphosize]
 
   # add your metamorphosize action here
-  
+
+  def metamorphosize
+    #find the tadpole :set_tadpole finds the tadpole already
+    #growup! placed a method in the Tadpole model
+      #destroy your former self
+      #create a new frog with the same attributes of a tadpole
+    #redirect_to @frog
+    redirect_to @tadpole.become!(Frog)
+  end
+
   def index
     @tadpoles = Tadpole.all
   end
